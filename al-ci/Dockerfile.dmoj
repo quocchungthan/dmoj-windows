@@ -50,17 +50,27 @@ RUN bash ./make_style.sh
 RUN python3 manage.py collectstatic --noinput
 RUN python3 manage.py compilemessages
 RUN python3 manage.py compilejsi18n
-RUN python3 manage.py migrate
-RUN python3 manage.py loaddata navbar
-RUN python3 manage.py loaddata language_small
-RUN python3 manage.py loaddata demo
-RUN python3 manage.py loaddata language_all
+
+## This supposed to be run once after migration
+# RUN python3 manage.py loaddata navbar
+# RUN python3 manage.py loaddata language_small
+# RUN python3 manage.py loaddata demo
+# RUN python3 manage.py loaddata language_all
    
-# Expose port for Django app
+# Set the working directory to /app
+WORKDIR /app
+
+# Copy the entrypoint script into the container
+COPY config/entrypoint.sh /entrypoint.sh
+
+# Make sure the entrypoint script is executable
+RUN chmod +x /entrypoint.sh
+
+COPY config/load_data.sh /app/load_data.sh
+RUN chmod +x /app/load_data.sh
+
+# Expose port 8000 for Django
 EXPOSE 8000
 
-# Start Redis service
-RUN service redis-server start
-
-# Set the default command to start the Django server
-CMD ["python3", "manage.py", "runserver", "0.0.0.0:8000"]
+# Set the entrypoint to the script
+ENTRYPOINT ["/entrypoint.sh"]
