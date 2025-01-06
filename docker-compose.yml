@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: al-ci/Dockerfile.dmoj
+    container_name: dmoj_app
+    ports:
+      - "8000:8000"  # Exposing port 8000
+    volumes:
+      - ./site:/app/site  # Volume to persist changes
+    environment:
+      - DB_HOST=db
+      - DB_NAME=dmoj
+      - DB_USER=dmoj
+      - DB_PASSWORD=nsot98er  # replace with actual password
+
+  db:
+    image: mariadb:10.5
+    container_name: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password  # Set root password
+      MYSQL_DATABASE: dmoj
+      MYSQL_USER: dmoj
+      MYSQL_PASSWORD: nsot98er  # Replace with actual password
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    networks:
+      - backend
+
+  redis:
+    image: redis:alpine
+    container_name: redis-server
+    ports:
+      - "6379:6379"  # Exposing Redis port
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge
+
+volumes:
+  mariadb_data:
+    driver: local
