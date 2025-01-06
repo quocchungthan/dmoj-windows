@@ -62,6 +62,7 @@ WORKDIR /app
 
 # Copy the entrypoint script into the container
 COPY config/entrypoint.sh /entrypoint.sh
+RUN dos2unix /entrypoint.sh
 
 # Make sure the entrypoint script is executable
 RUN chmod +x /entrypoint.sh
@@ -70,7 +71,7 @@ COPY config/load_data.sh /app/load_data.sh
 RUN chmod +x /app/load_data.sh
 
 # Expose port 8000 for Django
-EXPOSE 8000
+# EXPOSE 8000
 
 # Set the entrypoint to the script
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]

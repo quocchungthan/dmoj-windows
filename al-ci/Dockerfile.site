@@ -1,0 +1,13 @@
+FROM cbt/dmoj-base:latest
+
+RUN pip3 install uwsgi
+RUN ARCH=$([ $(uname -m) = "x86_64" ] && echo "amd64" || echo "arm64") && \
+    curl --location -o pandoc.deb $(curl -s https://api.github.com/repos/jgm/pandoc/releases/latest | grep -o -m 1 "https://github\.com.*pandoc-.*-$ARCH\.deb") && \
+    dpkg -i pandoc.deb && \
+    rm pandoc.deb
+
+EXPOSE 8000
+
+COPY config/uwsgi.ini uwsgi.ini
+
+ENTRYPOINT uwsgi --ini uwsgi.ini

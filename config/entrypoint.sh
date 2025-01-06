@@ -3,7 +3,7 @@
 # Wait for the database to be ready (optional, can be added if needed)
 # Example using `wait-for-it` or similar scripts to wait for MySQL/MariaDB container
 # /wait-for-it.sh db:3306 --timeout=30 --strict -- echo "Database is up"
-/app/wait-for-it.sh db:3306 -- /app/wait-for-it.sh redis-server:6379 -- echo "Both DB and Redis are up!"
+/bin/bash /app/wait-for-it.sh db:3306 -- /app/wait-for-it.sh redis-server:6379 -- echo "Both DB and Redis are up!"
 
 # Run Django management commands
 echo "Running Django migrations..."

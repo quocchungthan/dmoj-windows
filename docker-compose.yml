@@ -6,6 +6,7 @@ services:
       context: .
       dockerfile: al-ci/Dockerfile.dmoj
     container_name: dmoj_app
+    image: cbt/dmoj-base
     ports:
       - "8000:8000"  # Exposing port 8000
     volumes:
@@ -20,6 +21,98 @@ services:
       - redis
     networks:
       - backend
+  site:
+    container_name: dmoj_site
+    build:
+      context: .
+      dockerfile: ./al-ci/Dockerfile.site
+    image: cbt/dmoj-site
+    init: true
+    restart: unless-stopped
+    volumes:
+      - assets:/assets/
+      - userdatacache:/userdatacache/
+      - contestdatacache:/contestdatacache/
+      - cache:/cache/
+      - ./media/:/media/
+      - ./problems/:/problems/
+      - ./site/:/site/
+    working_dir: /site/
+    networks:
+      - backend
+    depends_on:
+      - web
+      - db
+      - redis
+  # celery:
+  #   container_name: vnoj_celery
+  #   build:
+  #     context: .
+  #     dockerfile: ./al-ci/Dockerfile.celery
+  #   image: vnoj/vnoj-celery
+  #   init: true
+  #   restart: unless-stopped
+  #   volumes:
+  #     - userdatacache:/userdatacache/
+  #     - contestdatacache:/contestdatacache/
+  #     - ./repo/:/site/
+  #   working_dir: /site/
+  #   env_file: [environment/mysql.env, environment/site.env]
+  #   networks: [site, db]
+  #   depends_on: [base, db, redis]
+  # bridged:
+  #   container_name: vnoj_bridged
+  #   build:
+  #     context: .
+  #     dockerfile: ./bridged/Dockerfile
+  #   image: vnoj/vnoj-bridged
+  #   init: true
+  #   restart: unless-stopped
+  #   volumes:
+  #     - ./problems/:/problems/
+  #     - ./repo/:/site/
+  #   working_dir: /site/
+  #   env_file: [environment/mysql.env, environment/site.env]
+  #   networks: [site, nginx, db]
+  #   depends_on: [base, db, redis]
+  #   ports:
+  #     - 9998:9998
+  #     - 9999:9999
+  # wsevent:
+  #   container_name: vnoj_wsevent
+  #   build:
+  #     context: .
+  #     dockerfile: ./wsevent/Dockerfile
+  #   image: vnoj/vnoj-wsevent
+  #   init: true
+  #   restart: unless-stopped
+  #   volumes:
+  #     - ./repo/:/app/site/
+  #   working_dir: /app/site
+  #   env_file: [environment/mysql.env, environment/site.env]
+  #   networks: [site, nginx]
+  #   depends_on: [base]
+  #   #ports:
+  #   #  - 15100:15100
+  #   #  - 15101:15101
+  #   #  - 15102:15102
+  # nginx:
+  #   container_name: dmoj_nginx
+  #   image: nginx:alpine
+  #   restart: unless-stopped
+  #   ports:
+  #     - 80:80
+  #   volumes:
+  #     - assets:/assets/
+  #     - userdatacache:/userdatacache/
+  #     - contestdatacache:/contestdatacache/
+  #     - cache:/cache/
+  #     - ./media/:/media/
+  #     - ./config/nginx/:/etc/nginx/conf.d/
+  #   networks:
+  #     - backend
+  #   depends_on:
+  #     - site
   db:
     image: mariadb:10.5
     container_name: mariadb
@@ -48,3 +141,7 @@ networks:
 volumes:
   mariadb_data:
     driver: local
+  assets:
+  userdatacache:
+  contestdatacache:
+  cache:
