@@ -7,8 +7,8 @@ services:
       dockerfile: al-ci/Dockerfile.dmoj
     container_name: dmoj_app
     image: cbt/dmoj-base
-    ports:
-      - "8000:8000"  # Exposing port 8000
+    # ports:
+    #   - "8000:8000"  # Exposing port 8000
     volumes:
       - ./site:/app/site  # Volume to persist changes
     environment:
@@ -96,23 +96,23 @@ services:
   #   #  - 15100:15100
   #   #  - 15101:15101
   #   #  - 15102:15102
-  # nginx:
-  #   container_name: dmoj_nginx
-  #   image: nginx:alpine
-  #   restart: unless-stopped
-  #   ports:
-  #     - 80:80
-  #   volumes:
-  #     - assets:/assets/
-  #     - userdatacache:/userdatacache/
-  #     - contestdatacache:/contestdatacache/
-  #     - cache:/cache/
-  #     - ./media/:/media/
-  #     - ./config/nginx/:/etc/nginx/conf.d/
-  #   networks:
-  #     - backend
-  #   depends_on:
-  #     - site
+  nginx:
+    container_name: dmoj_nginx
+    image: nginx:alpine
+    restart: unless-stopped
+    ports:
+      - 80:80
+    volumes:
+      - assets:/assets/
+      - userdatacache:/userdatacache/
+      - contestdatacache:/contestdatacache/
+      - cache:/cache/
+      - ./media/:/media/
+      - ./config/nginx/:/etc/nginx/conf.d/
+    networks:
+      - backend
+    depends_on:
+      - site
   db:
     image: mariadb:10.5
     container_name: mariadb
