@@ -39,7 +39,8 @@ DATABASES = {
         'NAME': 'dmoj',
         'USER': 'dmoj',
         'PASSWORD': 'nsot98er',
-        'HOST': '127.0.0.1',
+        'HOST': 'db',  # Use the service name (db) as the host, this resolves to the db container
+        'PORT': '3306',  # Default MySQL/MariaDB port, no need to specify if using the default
         'OPTIONS': {
             'charset': 'utf8mb4',
             'sql_mode': 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION',
