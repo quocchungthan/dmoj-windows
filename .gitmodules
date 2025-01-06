@@ -1,3 +1,6 @@
 [submodule "site"]
 	path = site
 	url = https://github.com/DMOJ/site.git
+[submodule "judge"]
+	path = judge
+	url = https://github.com/DMOJ/judge.git
