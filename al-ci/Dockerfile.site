@@ -11,6 +11,7 @@ EXPOSE 8000
 COPY config/uwsgi.ini /uwsgi.ini
 
 COPY config/load_assets.sh /app/load_assets.sh
+RUN dos2unix /app/load_assets.sh
 RUN chmod +x /app/load_assets.sh
 
 ENTRYPOINT uwsgi --ini /uwsgi.ini
