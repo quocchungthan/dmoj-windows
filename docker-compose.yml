@@ -81,24 +81,25 @@ services:
     ports:
       - 9998:9998
       - 9999:9999
-  # wsevent:
-  #   container_name: vnoj_wsevent
-  #   build:
-  #     context: .
-  #     dockerfile: ./wsevent/Dockerfile
-  #   image: vnoj/vnoj-wsevent
-  #   init: true
-  #   restart: unless-stopped
-  #   volumes:
-  #     - ./repo/:/app/site/
-  #   working_dir: /app/site
-  #   env_file: [environment/mysql.env, environment/site.env]
-  #   networks: [site, nginx]
-  #   depends_on: [base]
-  #   #ports:
-  #   #  - 15100:15100
-  #   #  - 15101:15101
-  #   #  - 15102:15102
+  wsevent:
+    container_name: dmoj_wsevent
+    build:
+      context: .
+      dockerfile: ./al-ci/Dockerfile.wsevent
+    image: cbt/dmoj-wsevent
+    init: true
+    restart: unless-stopped
+    working_dir: /app
+    networks:
+      - backend
+    depends_on:
+      - web
+      - redis
+      - db
+    #ports:
+    #  - 15100:15100
+    #  - 15101:15101
+    #  - 15102:15102
   nginx:
     container_name: dmoj_nginx
     image: nginx:alpine
