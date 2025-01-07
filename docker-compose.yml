@@ -36,6 +36,8 @@ services:
       - cache:/cache/
       - ./media/:/media/
       - ./problems/:/problems/
+    ports:
+      - "8000:8000"  # Exposing port 8000
     working_dir: /app/
     networks:
       - backend
@@ -96,10 +98,10 @@ services:
       - web
       - redis
       - db
-    #ports:
-    #  - 15100:15100
-    #  - 15101:15101
-    #  - 15102:15102
+    ports:
+     - 15100:15100
+     - 15101:15101
+     - 15102:15102
   nginx:
     container_name: dmoj_nginx
     image: nginx:alpine

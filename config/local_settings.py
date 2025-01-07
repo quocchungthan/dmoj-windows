@@ -194,8 +194,8 @@ EVENT_DAEMON_POLL = '/channels/'
 #EVENT_DAEMON_AMQP_EXCHANGE = '<AMQP exchange to use>'
 
 ## Celery
-#CELERY_BROKER_URL = 'redis://localhost:6379'
-#CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+CELERY_BROKER_URL = 'redis://redis:6379'
+CELERY_RESULT_BACKEND = 'redis://redis:6379'
 
 ## CDN control.
 # Base URL for a copy of Ace editor.

@@ -1,3 +1,5 @@
 FROM cbt/dmoj-base:latest
 
+RUN pip3 install Redis
+
 ENTRYPOINT celery -A dmoj_celery worker -l info --concurrency=2
