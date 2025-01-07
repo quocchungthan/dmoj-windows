@@ -151,6 +151,8 @@ BRIDGED_JUDGE_ADDRESS = [('0.0.0.0', 9999)]
 # The bridged daemon bind address and port to communicate with the site.
 BRIDGED_DJANGO_ADDRESS = [('0.0.0.0', 9998)]
 
+DMOJ_PROBLEM_DATA_ROOT = '/problems/'
+
 ## DMOJ features.
 # Set to True to enable full-text searching for problems.
 ENABLE_FTS = True

@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  cbtjudge:
+    image: dmoj/judge-tier1:latest
+    container_name: cbtjudge
+    networks:
+      - dmoj-windows_backend
+    # ports:
+    #   - "9998:9998"
+    volumes:
+      - ./problems/:/problems/
+    cap_add:
+      - SYS_PTRACE
+    restart: always
+    command: run -p 9999 -c /problems/cbtjudge.yml bridged cbtjudge IpxLl0hmI5f3dGoYR2B0iTFsFgTMey9u582C+h3ipOwC6HrqqBZHLUs7o/oiGdpgxBUDh71d7Fnh69JiBwOGD+qL6JpCX2cDUa2i
+
+networks:
+  dmoj-windows_backend:
+    external: true

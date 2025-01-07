@@ -14,6 +14,6 @@ python3 manage.py loaddata demo
 
 # Load the language_all data
 echo "Loading language_all data..."
-python3 manage.py loaddata language_all
+# python3 manage.py loaddata language_all
 
 echo "All data loaded successfully!"

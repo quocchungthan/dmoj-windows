@@ -4,3 +4,6 @@
 [submodule "judge"]
 	path = judge
 	url = https://github.com/DMOJ/judge.git
+[submodule "judge-server"]
+	path = judge-server
+	url = https://github.com/DMOJ/judge-server.git

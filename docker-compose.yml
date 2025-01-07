@@ -79,7 +79,8 @@ services:
       - redis
       - db
     ports:
-      - 0.0.0.0:9999:9999
+      - 9999:9999
+      - 9998:9998
   wsevent:
     container_name: dmoj_wsevent
     build:
