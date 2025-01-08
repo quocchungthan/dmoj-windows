@@ -1,9 +1,13 @@
 #!/bin/bash
 
-# Check if set-env-vars.sh exists and source it
+# Check if set-env-vars.sh exists in the current directory and source it
 if [ -f "./set-env-vars.sh" ]; then
     echo "Found set-env-vars.sh. Sourcing it..."
     source ./set-env-vars.sh
+# Check if set-env-vars.sh exists in another directory and source it
+elif [ -f "./idzhost.vn-haitin.edu.vn/set-env-vars.sh" ]; then
+    echo "Found set-env-vars.sh in the specified directory. Sourcing it..."
+    source ./idzhost.vn-haitin.edu.vn/set-env-vars.sh
 else
     echo "set-env-vars.sh not found. Skipping."
 fi

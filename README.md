@@ -38,6 +38,8 @@ cp <host-domain>/set-env-vars.sh.example <host-domain>/set-env-vars.sh
 -- update set-env-vars.sh
 -- dont forget to use `chmod +x <host-domain>/deploy.sh && chmod +x <host-domain>/set-env-vars.sh` to grand the permission
 <host-domain>/deploy.sh
+-- note, we might need to stop and start dmoj_app again since `waiting for db` does not work properly
+-- then run the deploy script one more time
 ```
 
 ## Default credentials

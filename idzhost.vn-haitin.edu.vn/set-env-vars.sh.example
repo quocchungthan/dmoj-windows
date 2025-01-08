@@ -1,14 +1,9 @@
 #!/bin/bash
 
-# Define the source and destination paths
-SOURCE="./local_settings.py"
-DESTINATION="../config/"
+# Replace <DEPLOYMENT-DOMAIN> with haitin.edu.vn in nginx.conf and local_settings.py
+sed -i 's/<DEPLOYMENT-DOMAIN>/haitin.edu.vn/g' "./idzhost.vn-haitin.edu.vn/nginx/nginx.conf"
+sed -i 's/<DEPLOYMENT-DOMAIN>/haitin.edu.vn/g' "./idzhost.vn-haitin.edu.vn/local_settings.py"
 
-# Check if the source file exists
-if [ -f "$SOURCE" ]; then
-  # Copy the source file to the destination
-  cp "$SOURCE" "$DESTINATION"
-  echo "File copied successfully to $DESTINATION"
-else
-  echo "Source file $SOURCE does not exist."
-fi
+# Copy modified nginx.conf and local_settings.py to the config directory
+cp "./idzhost.vn-haitin.edu.vn/nginx/nginx.conf" "./config/nginx/nginx.conf"
+cp "./idzhost.vn-haitin.edu.vn/local_settings.py" "./config/local_settings.py"
