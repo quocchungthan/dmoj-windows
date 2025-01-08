@@ -72,6 +72,9 @@ COPY config/load_data.sh /app/load_data.sh
 RUN dos2unix /app/load_data.sh
 RUN chmod +x /app/load_data.sh
 
+COPY config/wait-for-it.sh /app/wait-for-it.sh
+RUN chmod +x /app/wait-for-it.sh
+
 # Expose port 8000 for Django
 # EXPOSE 8000
 
