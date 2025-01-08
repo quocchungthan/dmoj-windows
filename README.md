@@ -40,6 +40,8 @@ cp <host-domain>/set-env-vars.sh.example <host-domain>/set-env-vars.sh
 <host-domain>/deploy.sh
 -- note, we might need to stop and start dmoj_app again since `waiting for db` does not work properly
 -- then run the deploy script one more time
+-- find the name of auth key of judge in docker-compose.judge.yml then go to `admin page` to create one judge there.
+<host-domain>/post-deploy.sh
 ```
 
 ## Default credentials
