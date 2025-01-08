@@ -62,7 +62,7 @@ docker-compose up --build -d
 echo "Loading assets into dmoj_site container..."
 docker exec -it dmoj_site /app/load_assets.sh
 
-# Additional step: You can add more docker commands as needed. 
+# Additional step: You can add more docker commands as needed.
 # For example, running migrations, cleaning up, or checking logs.
 
 # Example: Stopping all services (optional)
