@@ -15,11 +15,34 @@ post-deploy.bat
 ```
 p/s: For linux users =)) please write your own sh script based on the `.bat` files. Or ask open AI to do so!
 
-## Replacement:
+### Replacement:
 - your local ip address: ex: 192.168.20.107
 - database password: ex: nsot98er
 - judge authentication key and name: ex cbtjudge
 - ...
+
+
+## Against ubuntu server
+Please use `/<host-domain>/deploy.sh` as the reference. But first make sure that machine has `git`, `make` and `docker`.
+
+Required environment variables:
+| Var name      | Example value      |
+| ------------- | ------------- |
+| Cell 1, Row 1 | Cell 2, Row 1 |
+| Cell 1, Row 2 | Cell 1, Row 2 |
+
+Clone the file `set-env-vars.sh.example` -> `set-env-vars.sh` and update it for overwrting the env vars.
+
+```
+cp set-env-vars.sh.example set-env-vars.sh
+-- update set-env-vars.sh
+deploy.sh
+```
+
+## Default credentials
+?
+dmojpage: `admin/admin` -> Change password immediately in the first time login
+
 
 ## Referenced examples of scripts
 Example of judge running command (https://docs.dmoj.ca/#/judge/setting_up_a_judge).
@@ -37,6 +60,3 @@ docker run \
     run -p "$PORT" -c /problems/judge.yml \
     "$IP" "$JUDGE_NAME" "$JUDGE_AUTHENTICATION_KEY"
 ```
-## Default credentials
-?
-dmojpage: `admin/admin` -> Change password immediately in the first time login
