@@ -49,7 +49,8 @@ fi
 # Build and start the web service
 echo "Building and starting the web service..."
 docker-compose up --build -d web
-
+docker container stop dmoj_app
+docker container start dmoj_app
 # Wait for 40 seconds
 echo "Waiting for 40 seconds before loading data..."
 sleep 40
