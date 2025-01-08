@@ -9,8 +9,6 @@ services:
     image: cbt/dmoj-base
     # ports:
     #   - "8000:8000"  # Exposing port 8000
-    volumes:
-      - ./site:/app/site  # Volume to persist changes
     environment:
       - DB_HOST=db
       - DB_NAME=dmoj
