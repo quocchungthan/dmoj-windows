@@ -80,7 +80,7 @@ services:
       - db
     ports:
       - 9999:9999
-      - 9998:9998
+      # - 9998:9998
   wsevent:
     container_name: dmoj_wsevent
     build:
