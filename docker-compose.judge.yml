@@ -6,8 +6,8 @@ services:
     container_name: cbtjudge
     networks:
       - dmoj-windows_backend
-    # ports:
-    #   - "9998:9998"
+    ports:
+      - "9998:9998"
     volumes:
       - ./problems/:/problems/
     cap_add:
