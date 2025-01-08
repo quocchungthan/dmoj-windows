@@ -23,7 +23,7 @@ p/s: For linux users =)) please write your own sh script based on the `.bat` fil
 
 
 ## Against ubuntu server
-Please use `/<host-domain>/deploy.sh` as the reference. But first make sure that machine has `git`, `make` and `docker`.
+Please use `/<host-domain>/deploy.sh` as the reference. But first make sure that machine has `git`, `make` and `docker`, `docker-compose`.
 
 Required environment variables:
 | Var name      | Example value      |
@@ -34,9 +34,10 @@ Required environment variables:
 Clone the file `set-env-vars.sh.example` -> `set-env-vars.sh` and update it for overwrting the env vars.
 
 ```
-cp set-env-vars.sh.example set-env-vars.sh
+cp <host-domain>/set-env-vars.sh.example <host-domain>/set-env-vars.sh
 -- update set-env-vars.sh
-deploy.sh
+-- dont forget to use `chmod +x <host-domain>/deploy.sh && chmod +x <host-domain>/set-env-vars.sh` to grand the permission
+<host-domain>/deploy.sh
 ```
 
 ## Default credentials

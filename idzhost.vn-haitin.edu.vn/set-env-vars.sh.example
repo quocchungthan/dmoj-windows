@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Define the source and destination paths
+SOURCE="./local_settings.py"
+DESTINATION="../config/"
+
+# Check if the source file exists
+if [ -f "$SOURCE" ]; then
+  # Copy the source file to the destination
+  cp "$SOURCE" "$DESTINATION"
+  echo "File copied successfully to $DESTINATION"
+else
+  echo "Source file $SOURCE does not exist."
+fi
