@@ -2,7 +2,7 @@
     {
         "fields": {
             "key": "problems",
-            "label": "Problems",
+            "label": "Bài tập",
             "level": 0,
             "lft": 1,
             "order": 1,
@@ -18,7 +18,7 @@
     {
         "fields": {
             "key": "submit",
-            "label": "Submissions",
+            "label": "Các bài nộp",
             "level": 0,
             "lft": 1,
             "order": 2,
@@ -34,7 +34,7 @@
     {
         "fields": {
             "key": "user",
-            "label": "Users",
+            "label": "Thành viên",
             "level": 0,
             "lft": 1,
             "order": 3,
@@ -50,7 +50,7 @@
     {
         "fields": {
             "key": "contest",
-            "label": "Contests",
+            "label": "Kì thi",
             "level": 0,
             "lft": 1,
             "order": 5,
@@ -66,12 +66,12 @@
     {
         "fields": {
             "key": "about",
-            "label": "About",
+            "label": "Thông tin",
             "level": 0,
             "lft": 1,
             "order": 6,
             "parent": null,
-            "path": "/about/",
+            "path": "/status/",
             "regex": "^/about/$",
             "rght": 4,
             "tree_id": 5
@@ -82,7 +82,7 @@
     {
         "fields": {
             "key": "status",
-            "label": "Status",
+            "label": "Thông tin",
             "level": 1,
             "lft": 2,
             "order": 7,
