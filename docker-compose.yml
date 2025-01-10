@@ -97,9 +97,9 @@ services:
       - redis
       - db
     ports:
-     - 15100:15100
-     - 15101:15101
-     - 15102:15102
+     - 0.0.0.0:15100:15100
+     - 0.0.0.0:15101:15101
+     - 0.0.0.0:15102:15102
   nginx:
     container_name: dmoj_nginx
     image: nginx:alpine
