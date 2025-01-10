@@ -15,3 +15,4 @@ cp "./idzhost.vn-haitin.edu.vn/fixtures/demo.json" "./site/judge/fixtures/demo.j
 cp "./idzhost.vn-haitin.edu.vn/fixtures/navbar.json" "./site/judge/fixtures/navbar.json"
 cp "./idzhost.vn-haitin.edu.vn/logo.svg" "./site/resources/icons/logo.svg"
 #cp "./idzhost.vn-haitin.edu.vn/site/judge/utils/problem_data.py" "./site/judge/utils/problem_data.py"
+cp "./idzhost.vn-haitin.edu.vn/site/judge/event_poster.py" "./site/judge/event_poster.py"
