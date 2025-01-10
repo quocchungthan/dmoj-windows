@@ -175,11 +175,11 @@ BAD_MAIL_PROVIDERS = set()
 #EVENT_DAEMON_POST = '<ws:// URL to post to>'
 
 # If you are using the defaults from the guide, it is this:
-EVENT_DAEMON_POST = 'ws://127.0.0.1:15101/'
+EVENT_DAEMON_POST = 'ws://wsevent:15101/'
 
 # These are the publicly accessed interface configurations.
 # They should match those used by the script.
-EVENT_DAEMON_GET = 'ws://127.0.0.1:15100/'
+EVENT_DAEMON_GET = 'ws://wsevent:15100/'
 #EVENT_DAEMON_GET_SSL = '<public wss:// URL for clients>'
 #EVENT_DAEMON_POLL = '<public URL to access the HTTP long polling of event server>'
 # i.e. the path to /channels/ exposed by the daemon, through whatever proxy setup you have.
