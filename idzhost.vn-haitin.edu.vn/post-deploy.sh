@@ -15,6 +15,6 @@ echo "2. \$PORT and \$IP should be set according to BRIDGED_JUDGE_ADDRESS in the
 
 # Start the judge container using the specific docker-compose file
 echo "Starting the judge container using docker-compose..."
-docker-compose -f ../../docker-compose.judge.yml up -d
+docker compose -f ../../docker-compose.judge.yml up -d
 
 echo "Judge setup completed successfully!"

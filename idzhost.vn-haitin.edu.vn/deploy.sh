@@ -48,7 +48,7 @@ fi
 
 # Build and start the web service
 echo "Building and starting the web service..."
-docker-compose up --build -d web
+docker compose up --build -d web
 docker container stop dmoj_app
 docker container start dmoj_app
 # Wait for 40 seconds
@@ -61,7 +61,7 @@ docker exec -it dmoj_app /app/load_data.sh
 
 # Build and start all services (db, web, etc.)
 echo "Building and starting all services..."
-docker-compose up --build -d
+docker compose up --build -d
 
 # Load assets into the dmoj_site container
 echo "Loading assets into dmoj_site container..."
