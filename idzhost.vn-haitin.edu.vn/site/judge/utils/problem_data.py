@@ -182,6 +182,35 @@ class ProblemDataCompiler(object):
         test_cases = []
         hints = []
 
+        # BEGIN Customized [Multiple cases insert] code
+        # Start by cloning the first case in the list of cases
+        cloned_case = None
+        if self.cases:
+            cloned_case = self.cases[0]
+
+        if cloned_case:
+            for filename in self.files:
+                  if filename.endswith('.inp'):
+                     # Create a new cloned case and modify its files
+                     case_clone = cloned_case.copy()  # Clone the original case
+                     base_name = filename[:-4]  # Remove the .inp extension to get the base name
+
+                     # Check if corresponding output file exists
+                     out_file = f"{base_name}.out"
+                     if out_file in self.files:
+                        # Modify the cloned case to point to these specific input/output files
+                        case_clone.input_file = filename
+                        case_clone.output_file = out_file
+                        case_clone.points = cloned_case.points  # Set points to match the cloned case
+                        case_clone.is_pretest = cloned_case.is_pretest
+
+                        # Add to the appropriate list
+                        if case_clone.is_pretest:
+                              pretest_test_cases.append(case_clone)
+                        else:
+                              test_cases.append(case_clone)
+        # END Customized code
+
         for case in cases:
             if case['is_pretest']:
                 pretest_test_cases.append(case)
