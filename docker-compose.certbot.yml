@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  certbot:
+    image: certbot/certbot:latest
+    volumes:
+      - ./certbot/www/:/var/www/certbot/:rw
+      - ./certbot/conf/:/etc/letsencrypt/:rw
+
+networks:
+  dmoj-windows_backend:
+    external: true
