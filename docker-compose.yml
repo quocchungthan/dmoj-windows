@@ -106,6 +106,7 @@ services:
     restart: unless-stopped
     ports:
       - 80:80
+      - 443:443
     volumes:
       - assets:/assets/
       - userdatacache:/userdatacache/
@@ -113,6 +114,7 @@ services:
       - cache:/cache/
       - ./media/:/media/
       - ./config/nginx/:/etc/nginx/conf.d/
+      - ./certbot/www/:/var/www/certbot/:ro
     networks:
       - backend
     depends_on:

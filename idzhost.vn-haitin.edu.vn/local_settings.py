@@ -186,7 +186,7 @@ EVENT_DAEMON_GET = 'ws://wsevent:15100/'
 
 # Using our standard nginx configuration, these should be:
 #EVENT_DAEMON_GET = 'ws://<your domain>/event/'
-#EVENT_DAEMON_GET_SSL = 'wss://<your domain>/event/'  # Optional
+EVENT_DAEMON_GET_SSL = 'wss://<DEPLOYMENT-DOMAIN>/event/'  # Optional
 EVENT_DAEMON_POLL = '/channels/'
 
 # If you would like to use the AMQP-based event server from <https://github.com/DMOJ/event-server>,

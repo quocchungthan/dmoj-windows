@@ -18,3 +18,9 @@ echo "Starting the judge container using docker-compose..."
 docker compose -f ../../docker-compose.judge.yml up -d
 
 echo "Judge setup completed successfully!"
+
+# to run the SSL bot
+# Run this manually
+#docker compose run --rm -v ./certbot/www/:/var/www/certbot/:rw -v ./certbot/conf/:/etc/letsencrypt/:rw certbot certonly --webroot --webroot-path /var/www/certbot/ --dry-run --network dmoj-windows_backend -d haitin.edu.vn
+
+#echo "SSL bot setup completed successfully!"
