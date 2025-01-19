@@ -7,6 +7,8 @@ sed -i 's/<DEPLOYMENT-DOMAIN>/haitin.edu.vn/g' "./idzhost.vn-haitin.edu.vn/fixtu
 sed -i 's/<DEPLOYMENT-DOMAIN>/haitin.edu.vn/g' "./idzhost.vn-haitin.edu.vn/fixtures/navbar.json"
 
 sed -i 's/<SERVER-ADDRESS>/123.343.2.1/g' "./idzhost.vn-haitin.edu.vn/local_settings.py"
+sed -i 's/<EMAIL-ADDRESS>/cbtcbt@gmail.com/g' "./idzhost.vn-haitin.edu.vn/local_settings.py"
+sed -i 's/<EMAIL-PASSWORD>/thisisthrealpassowrd/g' "./idzhost.vn-haitin.edu.vn/local_settings.py"
 
 # Copy modified nginx.conf and local_settings.py to the config directory
 cp "./idzhost.vn-haitin.edu.vn/nginx/nginx.conf" "./config/nginx/nginx.conf"

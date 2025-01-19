@@ -28,6 +28,7 @@ echo "Judge setup completed successfully!"
 
 # openssl req -x509 -newkey rsa:2048 -keyout ./idzhost.vn-haitin.edu.vn/ssl/nginx-selfsigned.key -out ./idzhost.vn-haitin.edu.vn/ssl/nginx-selfsigned.crt -days 365
 # docker cp ./idzhost.vn-haitin.edu.vn/ssl/ dmoj_nginx:/var/www/selfsignedssl/
+# docker cp ./idzhost.vn-haitin.edu.vn/ssl/*.txt dmoj_nginx:/var/www/hostprovidedssl/
 # openssl rsa -in ./idzhost.vn-haitin.edu.vn/ssl/nginx-selfsigned.key -out ./idzhost.vn-haitin.edu.vn/ssl/nginx-selfsigned-nopass.key
 # pempem
 
