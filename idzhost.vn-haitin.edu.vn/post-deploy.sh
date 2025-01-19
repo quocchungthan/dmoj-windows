@@ -21,7 +21,13 @@ echo "Judge setup completed successfully!"
 
 # to run the SSL bot
 # Run this manually
-#docker compose -f docker-compose.certbot.yml run --rm certbot certonly --webroot --webroot-path /var/www/certbot/ --dry-run -d haitin.edu.vn
+#docker compose -f docker-compose.certbot.yml run --rm certbot certonly -d haitin.edu.vn --webroot --webroot-path /var/www/certbot/ --dry-run
 # Then after that finished
 # run again without --dry-run
 #echo "SSL bot setup completed successfully!"
+
+# openssl req -x509 -newkey rsa:2048 -keyout ./idzhost.vn-haitin.edu.vn/ssl/nginx-selfsigned.key -out ./idzhost.vn-haitin.edu.vn/ssl/nginx-selfsigned.crt -days 365
+# docker cp ./idzhost.vn-haitin.edu.vn/ssl/ dmoj_nginx:/var/www/selfsignedssl/
+# openssl rsa -in ./idzhost.vn-haitin.edu.vn/ssl/nginx-selfsigned.key -out ./idzhost.vn-haitin.edu.vn/ssl/nginx-selfsigned-nopass.key
+# pempem
+

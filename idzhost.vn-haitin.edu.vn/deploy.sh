@@ -73,5 +73,4 @@ docker exec -it dmoj_site /app/load_assets.sh
 # Example: Stopping all services (optional)
 # echo "Stopping all services..."
 # docker-compose down
-
 echo "Docker setup completed successfully!"
